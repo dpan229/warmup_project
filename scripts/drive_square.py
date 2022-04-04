@@ -23,15 +23,15 @@ class DriveSquare(object):
         timer = 0
         r = rospy.Rate(rate)
         while not rospy.is_shutdown():
-            # send turn commands for about 2 seconds,
+            # send turn commands for about 3 seconds,
             # then send forward commands for about 3 seconds
-            if timer < rate * 2:
-                publisher.publish(rotate_cmd)
+            if timer < rate * 3:
+                self.publisher.publish(rotate_cmd)
             else:
-                publisher.publish(straight_cmd)
-            timer = (timer + 1) % (rate * 5)
+                self.publisher.publish(straight_cmd)
+            timer = (timer + 1) % (rate * 6)
             r.sleep()
 
-if __name == '__main__':
+if __name__ == '__main__':
     node = DriveSquare()
     node.run()
