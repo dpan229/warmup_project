@@ -13,7 +13,7 @@ class DriveSquare(object):
     def run(self):
         # straight_cmd: drive forward in a straight line
         straight_cmd = Twist()
-        straight_cmd.linear.x = 0.5
+        straight_cmd.linear.x = 0.2
 
         # rotate_cmd: rotate in place
         rotate_cmd = Twist()
@@ -23,13 +23,13 @@ class DriveSquare(object):
         timer = 0
         r = rospy.Rate(rate)
         while not rospy.is_shutdown():
-            # send turn commands for about 3 seconds,
-            # then send forward commands for about 3 seconds
-            if timer < rate * 3:
+            # send turn commands for about 3.5 seconds,
+            # then send forward commands for about 5 seconds
+            if timer < rate * 3.5:
                 self.publisher.publish(rotate_cmd)
             else:
                 self.publisher.publish(straight_cmd)
-            timer = (timer + 1) % (rate * 6)
+            timer = (timer + 1) % (rate * 8.5)
             r.sleep()
 
 if __name__ == '__main__':
