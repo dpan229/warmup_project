@@ -25,10 +25,10 @@ certain distance from the closest object. The robot only moves forward if the
 closest object is within 45 degrees from straight ahead, otherwise it turns
 in place.
 
-For this problem and the Wall Follower, I wrote a simple function
+For this problem and the Wall Follower, I wrote a function
 `cap_magnitude`, which takes two arguments `x` and `max_magnitude`, and
-returns a value that has that is the same as `x` but with its magnitude
-capped to `max_magnitude`.
+returns `x` if its magnitude is less `max_magnitude`, otherwise it either
+`max_magnitude` or `-max_magnitdude` matching the sign of `x`.
 
 ### Person Follower gif
 
@@ -74,7 +74,7 @@ Proportional control is a useful tool for making the robot smoothly approach
 some target state in a variety of initial states. It can simultaneously be
 used for different aspects of control like turning speed and linear speed.
 
-### Using several different modes of operation:
+### Using several different modes of operation
 
 When implementing complex behaviors, it is helpful to split the behavior into
 several different modes, which are chosen from based on outside observations
