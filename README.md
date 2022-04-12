@@ -26,7 +26,7 @@ closest object is within 45 degrees from straight ahead, otherwise it turns
 in place.
 
 For this problem and the Wall Follower, I wrote a function
-`cap_magnitude`, which takes two arguments `x` and `max_magnitude` and
+`cap_magnitude` which takes two arguments `x` and `max_magnitude` and
 returns `x` if its magnitude is less `max_magnitude`, otherwise it returns 
 either `max_magnitude` or `-max_magnitdude` matching the sign of `x`.
 
